@@ -12,17 +12,48 @@
         Console.WriteLine("¿Desean jugar de nuevo? (s/n): ");
         jugardenuevo = Console.ReadLine();
         while (true)
-        {
+        
             if (jugardenuevo != "s")
             {
-                break; 
-            }
-        }
-    }
+                break;
+                while (false)
+                
+                    if (jugardenuevo != "n")
+                    
+                        break;
+
+
+
+                {
+
+
+                    if (numerodejugadores < 2 || numerodejugadores > 4)
+{
+    Console.WriteLine("El número de jugadores debe ser entre 2 y 4.");
+    continue; 
 }
 
 
+int rangoMaximo = 0;
 
+if (numerodejugadores == 2)
+{
+    rangoMaximo = 50;
+}
+else if (numerodejugadores == 3)
+{
+    rangoMaximo = 100;
+}
+else if (numerodejugadores == 4)
+{
+    rangoMaximo = 200;
+}
+
+
+                }
+            }
+    }
+}
 
 
 
