@@ -8,10 +8,30 @@
         Console.WriteLine("Ingrese el número de jugadores (2-4): ");
         int.Parse(Console.ReadLine());
         int numerodejugadores;
-
-
-
-
-
+        string jugardenuevo;
+        Console.WriteLine("¿Desean jugar de nuevo? (s/n): ");
+        jugardenuevo = Console.ReadLine();
+        while (true)
+        {
+            if (jugardenuevo != "s")
+            {
+                break; 
+            }
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
