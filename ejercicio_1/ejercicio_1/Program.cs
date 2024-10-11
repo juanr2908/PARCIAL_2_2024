@@ -1,54 +1,85 @@
-﻿public class Program
+﻿class AdivinaElNumero
 {
-    // Desarrollar el juego “Adivina el número” en un programa de C#. El juego es muy sencillo, consiste en adivinar un número ℕ aleatorio que el sistema escoge de un determinado rango y lo guarda en memoria sin ser revelado.
-
-    private static void Main(string[] args)
+    static void Main(string[] args)
     {
-        Console.WriteLine("Adivina el numero");
-        Console.WriteLine("Ingrese el número de jugadores (2-4): ");
-        int.Parse(Console.ReadLine());
-        int numerodejugadores = 0;
+        string jugarDeNuevo = "s";
+
+        while (jugarDeNuevo == "s")
         {
-            string jugardenuevo = "s";
-        while (jugardenuevo == "s") 
-            
-            
+            // Escoger número de jugadores
+            int numJugadores = 0;
+            Console.WriteLine("Ingrese el número de jugadores (2-4): ");
+            numJugadores = int.Parse(Console.ReadLine());
 
+            if (numJugadores < 2 || numJugadores > 4)
+            {
+                Console.WriteLine("El número de jugadores debe ser entre 2 y 4.");
+                continue; // Reinicia el ciclo si el número de jugadores no es válido
+            }
 
-if (numerodejugadores < 2 || numerodejugadores > 4)
+            // Determinar el rango basado en el número de jugadores
+            int rangoMaximo = 0;
 
-{
-    Console.WriteLine("El número de jugadores debe ser entre 2 y 4.");
-    continue; 
+            if (numJugadores == 2)
+            {
+                rangoMaximo = 50;
+            }
+            else if (numJugadores == 3)
+            {
+                rangoMaximo = 100;
+            }
+            else if (numJugadores == 4)
+            {
+                rangoMaximo = 200;
+            }
 
+            // Generar número aleatorio
+            Random random = new Random();
+            int numeroAleatorio = random.Next(0, rangoMaximo + 1);
 
+            Console.WriteLine("Se ha generado un número aleatorio. ¡Empieza el juego!");
 
-int rangoMaximo = 0;
+            bool juegoTerminado = false;
+            int jugadorActual = 1;
 
-if (numerodejugadores == 2)
-{
-    rangoMaximo = 50;
+            while (!juegoTerminado)
+            {
+                // Turno del jugador
+                Console.WriteLine("Turno del Jugador " + jugadorActual);
+                Console.WriteLine("Adivina el número: ");
+                int numeroIngresado = int.Parse(Console.ReadLine());
+
+                if (numeroIngresado > numeroAleatorio)
+                {
+                    Console.WriteLine("MENOR");
+                }
+                else if (numeroIngresado < numeroAleatorio)
+                {
+                    Console.WriteLine("MAYOR");
+                }
+                else
+                {
+                    Console.WriteLine("¡HAS GANADO, Jugador " + jugadorActual + "!");
+                    juegoTerminado = true;
+                }
+
+                // Cambiar al siguiente jugador
+                if (!juegoTerminado)
+                {
+                    jugadorActual++;
+
+                    if (jugadorActual > numJugadores)
+                    {
+                        jugadorActual = 1;
+                    }
+                }
+            }
+
+            // Preguntar si quieren jugar de nuevo
+            Console.WriteLine("¿Desean jugar de nuevo? (s/n): ");
+            jugarDeNuevo = Console.ReadLine();
+        }
+
+        Console.WriteLine("Gracias por jugar. ¡Hasta la próxima!");
+    }
 }
-else if (numerodejugadores == 3)
-{
-    rangoMaximo = 100;
-}
-else if (numerodejugadores == 4)
-{
-    rangoMaximo = 200;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
